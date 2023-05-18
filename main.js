@@ -16,9 +16,11 @@ form.addEventListener('submit', (evento)=>{
 })
 
 const lista = document.getElementById("lista")
-const itens = [
-    
-]
+const itens = JSON.parse(localStorage.getItem("itens")) || [] // true or false ....
+//console.log(itens)
+itens.forEach((elemento)=>{
+    console.log(elemento.nome, elemento.quantidade)
+})
 
 function criaElemento(nome, quantidade) {
     const novoItem = document.createElement('li')
@@ -36,5 +38,6 @@ function criaElemento(nome, quantidade) {
         "quantidade": quantidade
     }
     itens.push(itemAtual)
-    localStorage.setItem("item", JSON.stringify(itens))//metodo stringfy json só guarda string no
+    localStorage.setItem("itens", JSON.stringify(itens))//metodo stringfy json só guarda string no
 }
+// ja está : salvando itens, icrementando itens, salvando no localstorage, agora falta manipular e trazer do localstorage
