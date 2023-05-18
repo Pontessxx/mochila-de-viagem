@@ -16,7 +16,9 @@ form.addEventListener('submit', (evento)=>{
 })
 
 const lista = document.getElementById("lista")
-
+const itens = [
+    
+]
 
 function criaElemento(nome, quantidade) {
     const novoItem = document.createElement('li')
@@ -27,8 +29,12 @@ function criaElemento(nome, quantidade) {
 
     novoItem.appendChild(numeroItem)
     novoItem.innerHTML += nome
-
     lista.appendChild(novoItem)
-    localStorage.setItem("nome", nome)
-    localStorage.setItem("quantidade", quantidade)
+
+    const itemAtual = {
+        "nome": nome,
+        "quantidade": quantidade
+    }
+    itens.push(itemAtual)
+    localStorage.setItem("item", JSON.stringify(itens))//metodo stringfy json só guarda string no
 }
