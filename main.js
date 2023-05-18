@@ -7,6 +7,8 @@ form.addEventListener('submit', (evento)=>{
     /* console.log(evento.target.elements['nome'].value)
     console.log(evento.target.elements['quantidade'].value) */
     criaElemento(evento.target.elements['nome'].value, evento.target.elements['quantidade'].value)
+    evento.target.elements['nome'].value = ""
+    evento.target.elements['quantidade'].value = ""
 })
 
 const lista = document.getElementById("lista")
