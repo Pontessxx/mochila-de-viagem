@@ -6,9 +6,13 @@ form.addEventListener('submit', (evento)=>{
 
     /* console.log(evento.target.elements['nome'].value)
     console.log(evento.target.elements['quantidade'].value) */
-    criaElemento(evento.target.elements['nome'].value, evento.target.elements['quantidade'].value)
-    evento.target.elements['nome'].value = ""
-    evento.target.elements['quantidade'].value = ""
+    const nome = evento.target.elements['nome']
+    const quantidade = evento.target.elements['quantidade']
+
+    criaElemento(nome.value, quantidade.value)
+
+    nome.value = ""
+    quantidade.value = ""
 })
 
 const lista = document.getElementById("lista")
@@ -25,4 +29,6 @@ function criaElemento(nome, quantidade) {
     novoItem.innerHTML += nome
 
     lista.appendChild(novoItem)
+    localStorage.setItem("nome", nome)
+    localStorage.setItem("quantidade", quantidade)
 }
